@@ -4,7 +4,7 @@
 Summary:	Advanced Linux Sound Architecture (ALSA) graphical mixer
 Name:		alsamixergui
 Version:	0.9.0
-Release:	%mkrel 0.11%{beta}
+Release:	%mkrel 0.12%{beta}
 License:	GPL
 Group:		Sound
 URL:		http://www.iua.upf.es/~mdeboer/projects/alsamixergui/
@@ -21,6 +21,10 @@ BuildRequires:	libalsa-devel >= %{version}
 BuildRequires:	libslang-devel
 BuildRequires:	fltk-devel >= 1.1
 Requires:	kernel >= 2.4.18
+%if %mdkversion >= 200700
+Requires(post): desktop-file-utils
+Requires(postun): desktop-file-utils
+%endif
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -60,14 +64,34 @@ section="Multimedia/Sound" \
 title="AlsaMixerGUI" \
 longtitle="ALSA \
 connection mixer" \
-needs="x11"
+needs="x11" \
+xdg="true"
+EOF
+
+# XDG menu
+install -d %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Name=AlsaMixerGUI
+Comment=%{summary}
+Exec=%{name}
+Icon=sound_section
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Multimedia-Sound;Audio;Mixer;
 EOF
 
 %post
 %update_menus
+%if %mdkversion >= 200700
+%update_desktop_database
+%endif
 
 %postun
 %clean_menus
+%if %mdkversion >= 200700
+%clean_desktop_database
+%endif
 
 %clean
 rm -rf %{buildroot}
@@ -77,4 +101,5 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %{_bindir}/%{name}
 %{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 
