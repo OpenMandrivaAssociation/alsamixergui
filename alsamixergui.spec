@@ -15,7 +15,7 @@ Patch2:		alsamixer-0.9.0rc1-2-fltk2.patch
 Patch3:		alsamixergui-0.9.0rc1-memleak.patch
 Patch4:		alsamisergui-fix-compile-gcc-3.4.patch
 Patch5:		alsamixergui-0.9.0rc1-lock.patch
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	libalsa-devel >= %{version}
 BuildRequires:	libslang-devel
