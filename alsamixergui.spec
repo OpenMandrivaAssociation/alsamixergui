@@ -1,4 +1,4 @@
-%define beta	rc1_3
+%define beta	rc1_4
 %define fbeta	rc1-2
 
 Summary:	Advanced Linux Sound Architecture (ALSA) graphical mixer
@@ -54,20 +54,6 @@ rm -rf %{buildroot}
 
 %makeinstall
 
-# MDK menu entry
-mkdir -p %{buildroot}%{_menudir}
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}): \
-command="%{name}" \
-icon="sound_section.png" \
-section="Multimedia/Sound" \
-title="AlsaMixerGUI" \
-longtitle="ALSA \
-connection mixer" \
-needs="x11" \
-xdg="true"
-EOF
-
 # XDG menu
 install -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -78,7 +64,7 @@ Exec=%{name}
 Icon=sound_section
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;Audio;Mixer;
+Categories=Audio;Mixer;
 EOF
 
 %post
@@ -100,6 +86,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS README
 %{_bindir}/%{name}
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
-
