@@ -25,6 +25,7 @@ Requires:	kernel >= 2.4.18
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 %endif
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Alsamixergui is a FLTK based frontend for alsamixer. It is written
