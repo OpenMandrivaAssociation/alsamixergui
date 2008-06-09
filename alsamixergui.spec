@@ -20,10 +20,8 @@ BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	libalsa-devel >= %{version}
 BuildRequires:	libslang-devel
 BuildRequires:	fltk-devel >= 1.1
-%if %mdkversion >= 200700
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
-%endif
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -68,15 +66,11 @@ EOF
 
 %post
 %update_menus
-%if %mdkversion >= 200700
 %update_desktop_database
-%endif
 
 %postun
 %clean_menus
-%if %mdkversion >= 200700
 %clean_desktop_database
-%endif
 
 %clean
 rm -rf %{buildroot}
