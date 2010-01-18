@@ -1,4 +1,4 @@
-%define beta	rc1_4
+%define beta	rc1_5
 %define fbeta	rc1-2
 
 Summary:	Advanced Linux Sound Architecture (ALSA) graphical mixer
@@ -15,6 +15,7 @@ Patch2:		alsamixer-0.9.0rc1-2-fltk2.patch
 Patch3:		alsamixergui-0.9.0rc1-memleak.patch
 Patch4:		alsamisergui-fix-compile-gcc-3.4.patch
 Patch5:		alsamixergui-0.9.0rc1-lock.patch
+Patch6:		alsamixergui-0.9.0rc1-2-mdv-fix-str-fmt.patch
 BuildRequires:	X11-devel
 BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	libalsa-devel >= %{version}
@@ -40,6 +41,7 @@ graphical userinterface.
 %patch3 -p1
 %patch4 -p1 -b .fix_gcc_3.4
 %patch5 -p0
+%patch6 -p1 -b .strfmt
 
 %build
 autoconf
