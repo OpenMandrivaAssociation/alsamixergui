@@ -16,13 +16,9 @@ Patch3:		alsamixergui-0.9.0rc1-memleak.patch
 Patch4:		alsamisergui-fix-compile-gcc-3.4.patch
 Patch5:		alsamixergui-0.9.0rc1-lock.patch
 Patch6:		alsamixergui-0.9.0rc1-2-mdv-fix-str-fmt.patch
-BuildRequires:	X11-devel
 BuildRequires:	kernel-headers >= 2.4.0
 BuildRequires:	libalsa-devel >= %{version}
-BuildRequires:	libslang-devel
 BuildRequires:	fltk-devel >= 1.1
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -44,14 +40,14 @@ graphical userinterface.
 %patch6 -p1 -b .strfmt
 
 %build
-autoconf
-%configure
-%make all
+autoreconf -fi
+%configure2_5x
+%make
 
 %install
 rm -rf %{buildroot}
 
-%makeinstall
+%makeinstall_std
 
 # XDG menu
 install -d %{buildroot}%{_datadir}/applications
