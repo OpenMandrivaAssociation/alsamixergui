@@ -4,7 +4,7 @@
 Summary:	Advanced Linux Sound Architecture (ALSA) graphical mixer
 Name:		alsamixergui
 Version:	0.9.0
-Release:	%mkrel 0.14%{beta}.1
+Release:	0.14%{beta}.2
 License:	GPL
 Group:		Sound
 URL:		http://www.iua.upf.es/~mdeboer/projects/alsamixergui/
