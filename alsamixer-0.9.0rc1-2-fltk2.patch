@@ -1,0 +1,11 @@
+--- src/Fl_Pixmap_Button.H.orig	2002-05-29 12:14:19.000000000 +0200
++++ src/Fl_Pixmap_Button.H	2002-05-29 12:14:11.000000000 +0200
+@@ -49,7 +49,7 @@
+ 	
+ 	if (pw<0) {
+ #if FL_MAJOR_VERSION == 1 && FL_MINOR_VERSION >= 0
+-		fl_measure_pixmap(p->data,pw,ph);
++		fl_measure_pixmap(p->data(),pw,ph);
+ #else
+ 		fl_measure_pixmap(p->data(),pw,ph);
+ #endif

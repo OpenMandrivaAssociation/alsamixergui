@@ -1,0 +1,12 @@
+diff -p -up alsamixergui-0.9.0rc1-2/src/Fl_AM.cxx.strfmt alsamixergui-0.9.0rc1-2/src/Fl_AM.cxx
+--- alsamixergui-0.9.0rc1-2/src/Fl_AM.cxx.strfmt	2010-01-18 17:36:18.000000000 +0100
++++ alsamixergui-0.9.0rc1-2/src/Fl_AM.cxx	2010-01-18 17:53:41.000000000 +0100
+@@ -151,7 +151,7 @@ void gui_show_text(char* text)
+ void gui_abort(const char* errorstr)
+ {
+ 	if (strcmp(errorstr,""))
+-		fl_alert(errorstr);
++		fl_alert("%s", errorstr);
+ }
+ 
+ void gui_mixer_change_view(void)

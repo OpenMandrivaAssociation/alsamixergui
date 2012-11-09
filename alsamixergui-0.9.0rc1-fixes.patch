@@ -1,0 +1,22 @@
+--- src/Fl_Pixmap_Button.H.orig	2002-04-26 14:25:24.000000000 +0200
++++ src/Fl_Pixmap_Button.H	2002-04-26 14:25:17.000000000 +0200
+@@ -48,7 +48,7 @@
+ #endif
+ 	
+ 	if (pw<0) {
+-#if FL_MAJOR_VERSION == 1 && FL_MINOR_VERSION == 0
++#if FL_MAJOR_VERSION == 1 && FL_MINOR_VERSION >= 0
+ 		fl_measure_pixmap(p->data,pw,ph);
+ #else
+ 		fl_measure_pixmap(p->data(),pw,ph);
+--- src/Fl_AM.cxx.orig	2002-04-26 14:26:44.000000000 +0200
++++ src/Fl_AM.cxx	2002-04-26 14:26:48.000000000 +0200
+@@ -215,7 +215,7 @@
+ 	Fl::add_timeout(0.05,gui_idle_cb,0);
+ 	
+ #if FL_MAJOR_VERSION == 1 && FL_MINOR_VERSION >= 1
+-	Fl::visible_focus(0);
++//	Fl::visible_focus(0);
+ #endif
+ 
+ 	Fl::run();
