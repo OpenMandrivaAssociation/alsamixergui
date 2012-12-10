@@ -4,7 +4,7 @@
 Summary:	Advanced Linux Sound Architecture (ALSA) graphical mixer
 Name:		alsamixergui
 Version:	0.9.0
-Release:	0.14%{beta}.2
+Release:	%mkrel 0.14%{beta}.2
 License:	GPL
 Group:		Sound
 URL:		http://www.iua.upf.es/~mdeboer/projects/alsamixergui/
@@ -82,3 +82,56 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %{_bindir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
+
+
+%changelog
+* Wed Feb 02 2011 Funda Wang <fwang@mandriva.org> 0.9.0-0.14rc1_5.1mdv2011.0
++ Revision: 634997
+- rebuild
+- tighten BR
+
+* Mon Jan 18 2010 Jérôme Brenier <incubusss@mandriva.org> 0.9.0-0.14rc1_5mdv2011.0
++ Revision: 493232
+- rebuild for new fltk
+- fix str fmt
+
+* Sun Dec 07 2008 Thierry Vignaud <tv@mandriva.org> 0.9.0-0.14rc1_4mdv2009.1
++ Revision: 311681
+- rebuild for new fltk
+
+* Thu Jun 12 2008 Pixel <pixel@mandriva.com> 0.9.0-0.13rc1_4mdv2009.0
++ Revision: 218429
+- rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Wed Jan 16 2008 Thierry Vignaud <tv@mandriva.org> 0.9.0-0.13rc1_4mdv2008.1
++ Revision: 153719
+- remove useless kernel require
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 10 2007 Funda Wang <fwang@mandriva.org> 0.9.0-0.12rc1_4mdv2008.1
++ Revision: 116837
+- drop old menu
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - buildrequires X11-devel instead of XFree86-devel
+
+* Wed May 23 2007 Christiaan Welvaart <spturtle@mandriva.org> 0.9.0-0.12rc1_3mdv2008.0
++ Revision: 30393
+- sync with 0.9.0-0.12rc1_3mdv2007.1 src rpm
+  o add xdg menu stuff
+
+
+* Fri Sep 29 2006 Oden Eriksson <oeriksson@mandriva.com> 0.9.0-0.11rc1_3
+- sync with mille-xterm
+
+* Mon Dec 13 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.9.0-0.10rc1_3mdk
+- rebuild
+- spec cosmetics
+- do parallell build
+
+* Wed Jun 16 2004 Laurent MONTEL <lmontel@mandrakesoft.com> 0.9.0-0.9rc1_3mdk
+- Rebuild
+
