@@ -7,7 +7,7 @@ Version:	0.9.0
 Release:	0.14%{beta}.3
 License:	GPL
 Group:		Sound
-URL:		http://www.iua.upf.es/~mdeboer/projects/alsamixergui/
+URL:		https://www.iua.upf.es/~mdeboer/projects/alsamixergui/
 Source0:	ftp://www.iua.upf.es/pub/mdeboer/projects/alsamixergui/%{name}-%{version}%{fbeta}.tar.bz2
 Patch0:		alsamixergui-0.9.0rc1-fixes.patch
 Patch1:		alsamixer-0.9.0rc1-2-fltk.patch
